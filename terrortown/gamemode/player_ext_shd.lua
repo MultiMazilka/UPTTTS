@@ -13,9 +13,12 @@ AccessorFunc(plymeta, "role", "Role", FORCE_NUMBER)
 -- Role access
 function plymeta:GetTraitor() return self:GetRole() == ROLE_TRAITOR end
 function plymeta:GetDetective() return self:GetRole() == ROLE_DETECTIVE end
+function plymeta:GetKiller() return self:GetRole() == ROLE_KILLER end
+
 
 plymeta.IsTraitor = plymeta.GetTraitor
 plymeta.IsDetective = plymeta.GetDetective
+plymeta.IsKiller = plymeta.GetKiller
 
 function plymeta:IsSpecial() return self:GetRole() != ROLE_INNOCENT end
 
@@ -29,12 +32,14 @@ function plymeta:IsRole(role) return self:GetRole() == role end
 function plymeta:IsActiveRole(role) return self:IsRole(role) and self:IsActive() end
 function plymeta:IsActiveTraitor() return self:IsActiveRole(ROLE_TRAITOR) end
 function plymeta:IsActiveDetective() return self:IsActiveRole(ROLE_DETECTIVE) end
+function plymeta:IsActiveKiller() return self:IsActiveRole(ROLE_KILLER) end
 function plymeta:IsActiveSpecial() return self:IsSpecial() and self:IsActive() end
 
 local role_strings = {
    [ROLE_TRAITOR]   = "traitor",
    [ROLE_INNOCENT]  = "innocent",
-   [ROLE_DETECTIVE] = "detective"
+   [ROLE_DETECTIVE] = "detective",
+   [ROLE_KILLER] = "killer"
 };
 
 local GetRTranslation = CLIENT and LANG.GetRawTranslation or util.passthrough

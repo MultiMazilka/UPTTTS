@@ -6,7 +6,7 @@ GM.Website = "ttt.badking.net"
 GM.Version = "2014-06-22"
 
 
-GM.Customized = false
+GM.Customized = true
 
 -- Round status consts
 ROUND_WAIT   = 1
@@ -18,6 +18,7 @@ ROUND_POST   = 4
 ROLE_INNOCENT  = 0
 ROLE_TRAITOR   = 1
 ROLE_DETECTIVE = 2
+ROLE_KILLER = 3
 ROLE_NONE = ROLE_INNOCENT
 
 -- Game event log defs
@@ -35,7 +36,8 @@ EVENT_C4DISARM    = 10
 WIN_NONE      = 1
 WIN_TRAITOR   = 2
 WIN_INNOCENT  = 3
-WIN_TIMELIMIT = 4
+WIN_KILLER = 4
+WIN_TIMELIMIT = 5
 
 -- Weapon categories, you can only carry one of each
 WEAPON_NONE   = 0
@@ -77,6 +79,7 @@ COLOR_NAVY   = Color(0, 0, 100, 255)
 COLOR_PINK   = Color(255,0,255, 255)
 COLOR_ORANGE = Color(250, 100, 0, 255)
 COLOR_OLIVE  = Color(100, 100, 0, 255)
+COLOR_BLACKGREEN = Color(21, 116 ,21 ,255) 
 
 include("util.lua")
 include("lang_shd.lua") -- uses some of util

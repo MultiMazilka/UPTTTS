@@ -33,79 +33,106 @@ local mat_dir = "vgui/ttt/"
 -- want a new line to start.
 
 EquipmentItems = {
-   [ROLE_DETECTIVE] = {
-
-      -- body armor
-      {  id       = EQUIP_ARMOR,
-         loadout  = true, -- default equipment for detectives
-         type     = "item_passive",
-         material = mat_dir .. "icon_armor",
-         name     = "item_armor",
-         desc     = "item_armor_desc"
-      },
-
-      -- radar
-      {  id       = EQUIP_RADAR,
-         type     = "item_active",
-         material = mat_dir .. "icon_radar",
-         name     = "item_radar",
-         desc     = "item_radar_desc"
-      }
-
-
-      -- The default TTT equipment uses the language system to allow
-      -- translation. Below is an example of how the type, name and desc fields
-      -- would look with explicit non-localized text (which is probably what you
-      -- want when modding).
-
---      {  id       = EQUIP_ARMOR,
---         loadout  = true, -- default equipment for detectives
---         type     = "Passive effect item",
---         material = mat_dir .. "icon_armor",
---         name     = "Body Armor",
---         desc     = "Reduces bullet damage by 30% when\nyou get hit."
---      },
-   };
-
-
-   [ROLE_TRAITOR] = {
-      -- body armor
-      {  id       = EQUIP_ARMOR,
-         type     = "item_passive",
-         material = mat_dir .. "icon_armor",
-         name     = "item_armor",
-         desc     = "item_armor_desc"
-      },
-
-      -- radar
-      {  id       = EQUIP_RADAR,
-         type     = "item_active",
-         material = mat_dir .. "icon_radar",
-         name     = "item_radar",
-         desc     = "item_radar_desc"
-      },
-
-      -- disguiser
-      {  id       = EQUIP_DISGUISE,
-         type     = "item_active",
-         material = mat_dir .. "icon_disguise",
-         name     = "item_disg",
-         desc     = "item_disg_desc"
-      }
-   };
+	[ROLE_DETECTIVE] = {
+		
+		-- body armor
+		{  id       = EQUIP_ARMOR,
+			loadout  = true, -- default equipment for detectives
+			type     = "item_passive",
+			material = mat_dir .. "icon_armor",
+			name     = "item_armor",
+			desc     = "item_armor_desc"
+		},
+		
+		-- radar
+		{  id       = EQUIP_RADAR,
+			type     = "item_active",
+			material = mat_dir .. "icon_radar",
+			name     = "item_radar",
+			desc     = "item_radar_desc"
+		}
+		
+		
+		-- The default TTT equipment uses the language system to allow
+		-- translation. Below is an example of how the type, name and desc fields
+		-- would look with explicit non-localized text (which is probably what you
+		-- want when modding).
+		
+		--      {  id       = EQUIP_ARMOR,
+		--         loadout  = true, -- default equipment for detectives
+		--         type     = "Passive effect item",
+		--         material = mat_dir .. "icon_armor",
+		--         name     = "Body Armor",
+		--         desc     = "Reduces bullet damage by 30% when\nyou get hit."
+		--      },
+	};
+	
+	
+	[ROLE_TRAITOR] = {
+		-- body armor
+		{  id       = EQUIP_ARMOR,
+			type     = "item_passive",
+			material = mat_dir .. "icon_armor",
+			name     = "item_armor",
+			desc     = "item_armor_desc"
+		},
+		
+		-- radar
+		{  id       = EQUIP_RADAR,
+			type     = "item_active",
+			material = mat_dir .. "icon_radar",
+			name     = "item_radar",
+			desc     = "item_radar_desc"
+		},
+		
+		-- disguiser
+		{  id       = EQUIP_DISGUISE,
+			type     = "item_active",
+			material = mat_dir .. "icon_disguise",
+			name     = "item_disg",
+			desc     = "item_disg_desc"
+		}
+	};
+	[ROLE_KILLER] = {
+		-- body armor
+		{  id       = EQUIP_ARMOR,
+			loadout  = true,
+			type     = "item_passive",
+			material = mat_dir .. "icon_armor",
+			name     = "item_armor",
+			desc     = "item_armor_desc"
+		},
+		
+		-- radar
+		{  id       = EQUIP_RADAR,
+			loadout  = true,
+			type     = "item_active",
+			material = mat_dir .. "icon_radar",
+			name     = "item_radar",
+			desc     = "item_radar_desc"
+		},
+		
+		-- disguiser
+		{  id       = EQUIP_DISGUISE,
+			type     = "item_active",
+			material = mat_dir .. "icon_disguise",
+			name     = "item_disg",
+			desc     = "item_disg_desc"
+		}
+	};
 };
 
 
 -- Search if an item is in the equipment table of a given role, and return it if
 -- it exists, else return nil.
 function GetEquipmentItem(role, id)
-   local tbl = EquipmentItems[role]
-   if not tbl then return end
-
-   for k, v in pairs(tbl) do
-      if v and v.id == id then
-         return v
-      end
-   end
+	local tbl = EquipmentItems[role]
+	if not tbl then return end
+	
+	for k, v in pairs(tbl) do
+		if v and v.id == id then
+			return v
+		end
+	end
 end
 
