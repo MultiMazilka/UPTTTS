@@ -1,0 +1,79 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+class SdvigInt {
+  public:
+    int *Mass;
+    int Count;
+    
+    SdvigInt();
+    SdvigInt(int, int, int);
+    ~SdvigInt();
+    
+    void Out();
+    void Sdvig();
+
+};
+
+SdvigInt::SdvigInt()
+{
+    Count = 10;
+    Mass = new int[Count];
+    for(int i = 0; i < Count; ++i) {
+        Mass[i] = 0;
+    }
+}
+
+SdvigInt::SdvigInt(int N, int Lo, int Hi)
+{
+    Count = N;
+    Mass = new int[Count];
+    for(int i = 0; i < N; ++i)
+        Mass[i] = Lo + rand() % (Hi - Lo + 1);
+}
+
+SdvigInt::~SdvigInt()
+{
+    cout << endl << "Destructor" << endl;
+    delete [] Mass;
+}
+
+void SdvigInt::Out()
+{
+    cout << endl;
+    for(int i = 0; i < Count; ++i)
+        cout << Mass[i] << '\t';
+    cout << endl;
+}
+
+void SdvigInt::Sdvig()
+{
+    int t = Mass[0];
+   for (int i = 0; i < Count; i++){
+      Mass[i] = Mass[i+1];
+   }
+   Mass[Count-1] = t;
+}
+
+
+
+
+
+
+
+int main()
+{
+    srand(time(0));
+    
+    SdvigInt v(16,-50,50);
+    v.Out();
+    v.Sdvig();
+    
+    v.Out();
+    
+    
+    return 0;
+}
